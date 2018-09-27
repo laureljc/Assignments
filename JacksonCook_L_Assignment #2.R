@@ -1,56 +1,49 @@
-#variable name
-names(Copy_of_Education_table)
-#Structure of Data
-str(Copy_of_Education_table)
+#import data set
+t<-read.csv("C:/Users/Laurel Cook/Documents/Descriptive STATS Fall 2018/Copy of Education table.csv", stringsAsFactors = F)
+#structure of the data
+str(t)
+#variable name (to change variable from character to numeric)
+names(t)
+t$High.school.graduate<-as.numeric((t$High.school.graduate))
+t$Associate.s.degree..academic<-as.numeric(t$Associate.s.degree..academic)
+t$Bachelor.s.degree<-as.numeric(t$Bachelor.s.degree)
+t$Master.s.degree<-as.numeric(t$Master.s.degree)
+t$Doctoral.degree<-as.numeric(t$Doctoral.degree)
 #mean
-str(Copy_of_Education_table)
 mean(Copy_of_Education_table$`High school graduate`)
 mean(Copy_of_Education_table$`Associate's degree, academic`)
 mean(Copy_of_Education_table$`Bachelor's degree`)
 mean(Copy_of_Education_table$`Master's degree`)
 mean(Copy_of_Education_table$`Doctoral degree`)
-#median
+#median<
 str(Copy_of_Education_table)
 median(Copy_of_Education_table$`High school graduate`)
 median(Copy_of_Education_table$`Associate's degree, academic`)
 median(Copy_of_Education_table$`Bachelor's degree`)
 median(Copy_of_Education_table$`Master's degree`)
 median(Copy_of_Education_table$`Doctoral degree`)
-#Create mode function
-mode<-function(x) {
-  unique_val<-unique(x)
-  counts<-vector()
-  for(i in 1: length(unique_val)){
-    counts[i]<- length(which(x==unique_val[i]))
-  }
-  position<-c(which(counts==max(counts)))
-  if(length(unique_val)==length(x))
-    mode_x<-'Mode does not exist'
-  else
-    mode_x<-unique_val[position]
-  return(mode_x)
-}
-#Attach mode to dataset
-attach(Ed2)
-#Check work
-summary(`Doctoral degree`)
-mean(`Doctoral degree`)
-median(`Doctoral degree`)
-#Run mode#if output says "Mode does not exist" then data has no mode
-mode(`Doctoral degree`)
-mode(`High school graduate`)
-mode(`Bachelor's degree`)
-mode(`Associate's degree, academic`)
-mode(`Master's degree`)
-mode(Ed2$`High school graduate`)
+summary(t$High.school.graduate)
+#Create mode (Do this for all 5 variables)
+mode_HighSchool<-table(as.vector(t$High.school.graduate))
+names(mode_HighSchool[mode_HighSchool==max(mode_HighSchool)])
+View(mode_HighSchool)
 
-#create subset:
-edu<-Copy_of_Education_table[(1:14),(15:15)]
-#variance:
-var(edu)
-#range
-max(edu)-min(edu)
-#standard deviation
-a.-c(11680
-     )
-#Create histogram
+aa<-table(as.vector(t$High.school.graduate))
+names(aa[aa==max(aa)])
+
+hs<-table(as.vector(t$High.school.graduate))
+names(hs[hs==max(hs)])
+aa<-table(as.vector(t$Associate.s.degree.academic))
+names(aa[aa==max(aa)])
+ba<-table(as.vector(t$Bachelor.s.degree))
+names(ba[ba==max(ba)])+
+ma<-table(as.vector(t$Master.s.degree))
+names(ma[ma==max(ma)])
+do<-table(as.vector(t$Doctoral.degree))
+names(do[do==max(do)])
+
+sd(t$High.school.graduate)
+var(t$High.school.graduate)
+hist(t$Doctoral.degree, xlab="Doctoral Degree", ylab="Number of Degrees")
+barplot(t$Doctoral.degree)
+boxplot(t$Doctoral.degree)
